@@ -1,0 +1,108 @@
+$git config
+You can use it to configure the author's name, email address, file formats and many more to be used with your commits.
+
+#git config --global user.name "Kolosek
+#git config --global user.email "kolosek@example.com"
+
+$git init
+Using this command you make it sure that your git repository is initialized and creates the initial .git directory in a new or in an existing project. The output will be the following:
+
+Initialized empty Git repository in /path/.git/
+
+You can undo a $git init with rm -rf .git.
+
+$git clone <path>
+This creates a working copy of a Git repository from a remote source to your local repository. This is the first command you want to use when you are cloning a Git repository.
+
+#git clone /path/repository
+
+Also, you can add the original location as a remote so you can easily fetch from it again and push it if you have permissions. Once the project has been cloned you can start working on it. Write your RSpec tests!
+
+#git clone git@github:user/repository.git
+
+You can clone one specific branch at a time: git clone -b <branch_name><repository_url>:
+
+#git clone -b branch_name git@github:user/repository.git
+
+$git add <file_name>
+Add one or more files in your working directory to your index.
+
+$git commit
+Take all your changes written in the index to the HEAD branch with a -m message.
+
+#git commit -m "Commit these changes."
+
+You can also commit any files you've added to git add, and also commit any files you've changed since then:
+
+#git commit -a
+
+Always commit all your changes even if its only a bunch of Capybara tests!
+
+$git status
+It shows you the status difference between an index and working directory files. Lists the files you've changed, untracked because they are only in your working directory and staged since they are ready to be committed.
+
+On branch master
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+    File_name
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+$git remote
+Shows all the remote versions of your repository.
+
+$git checkout <branch_name>: You can switch from an existing branch to another one or create a new branch and switch to it git checkout -b <branch_name>.
+
+$git branch
+With this, you can simply list all existing branches, including remote branches by using -a or create a new branch if a branch name is provided.
+
+$git push
+Pushes all changes to the remote repository.
+
+#git push origin <branch_name>
+
+You can also delete a branch from your remote repository:
+
+#git push origin :<branch_name>
+
+$git pull
+Fetch and merge your changes in the remote repository to your working directory.
+
+$git merge <branch_name>
+Merges one or more branches into your active branch and if there are no conflicts it will automatically create a new commit.
+
+    In Kolosek, we commit all our changes to Git and make it sure to notify our team when they are merged with the rest of the application! Try to create your own application using Rails Associations.
+
+$git diff
+Show changes between your working tree and the index, between two branches, or changes between two files on disk. Example between branches:
+
+#git diff <source_branch> <target_branch>
+
+$git reset
+Reset your index and working directory to the state of your last commit.
+
+#git reset --hard origin/master
+
+#git reset --hard will also undo the changes you made so far! Use git reset --soft if you want to keep your changes.
+
+$git revert
+Revert works in a very similar way to $git reset, but instead of resetting it will create a new commit that reverses everything introduced by the accidental commit.
+
+$git tag
+You can use tagging to mark a significant change you made, such as a release.
+
+git tag 1.0.0 <commit_id>
+
+Always tag your new production releases. Try it out by implementing CarrierWave and adding a release tag to it!
+
+$git log
+It shows a listing of commits on a branch with corresponding details.
+
+commit 134808af7c596be8d92c619f9efb94542874e1e3
+Author: Kolosek <kolosek@example.com>
+Date:   Fri Mar 23 14:24:54 2018 +0100
+
+    [#1] First Commit
